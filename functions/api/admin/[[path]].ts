@@ -112,8 +112,7 @@ const DB_KEY = "admin-db-v2";
 
 export const onRequest: PagesFunction<Env> = async (context) => {
   const method = context.request.method.toUpperCase();
-  const pathParam = context.params.path;
-  const segments = Array.isArray(pathParam) ? pathParam : typeof pathParam === "string" ? [pathParam] : [];
+  const segments = resolvePathSegments(context.params.path);
 
   if (method === "OPTIONS") {
     return jsonResponse({ ok: true }, 200);
@@ -219,6 +218,21 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     return jsonResponse({ message: error instanceof Error ? error.message : "Unknown error" }, 500);
   }
 };
+
+function resolvePathSegments(pathParam: string | string[] | undefined): string[] {
+  const rawPath = Array.isArray(pathParam) ? pathParam.join("/") : typeof pathParam === "string" ? pathParam : "";
+  return rawPath
+    .split("/")
+    .map((segment) => segment.trim())
+    .filter((segment) => segment.length > 0)
+    .map((segment) => {
+      try {
+        return decodeURIComponent(segment);
+      } catch {
+        return segment;
+      }
+    });
+}
 
 function isPath(actual: string[], expected: string[]): boolean {
   return actual.length === expected.length && expected.every((item, index) => actual[index] === item);

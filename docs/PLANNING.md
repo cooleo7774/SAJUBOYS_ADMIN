@@ -280,7 +280,7 @@
 
 ## 13) 다음 실행 항목 (Immediate)
 
-1. Cloudflare Pages 환경에 `functions/api/admin/[...path].ts` 배포 연결 및 실운영 env 세팅
+1. Cloudflare Pages 환경에 `functions/api/admin/[[path]].ts` 배포 연결 및 실운영 env 세팅
 2. Supabase에 `supabase/migrations/*` 적용 및 RLS 정책 검증
 3. OPENAI_API_KEY/OPENAI_MODEL 운영 키 세팅 후 생성 품질 QA
 4. 대용량 번들 최적화(사주 계산 모듈 코드 스플리팅) 적용
@@ -303,7 +303,8 @@
 - 2026-02-16 15:14 | Step 5 | `src/routes/admin/Dashboard.tsx`, `src/routes/admin/DeployManager.tsx`, `src/api/deployments.ts`, `src/utils/deploymentStore.ts` 구현 | 대시보드 통계/배포 타임라인 표시 확인
 - 2026-02-16 15:14 | Step 6 | 한국어 사이드바 UI(`src/components/admin/AdminShell.tsx`), 확인 모달(`src/components/common/ConfirmModal.tsx`), 차트 시각화/CSS(`src/styles.css`) 반영 | `pnpm build` 통과
 - 2026-02-16 15:14 | Docs/Schema | `docs/admin-api-contract.md`, `docs/admin-knowledge-schema.sql`, `README.md`, `supabase/migrations/202602160002~004` 갱신 | 문서/마이그레이션 동기화 완료
-- 2026-02-16 16:03 | Step 2~5 Backend | `functions/api/admin/[...path].ts` 추가(프로젝트/지식/상품설정/생성/배포 전 엔드포인트) + OPENAI 연동 로직 추가 | 프론트 빌드 영향 없음, API 라우터 코드 반영 완료
+- 2026-02-16 16:03 | Step 2~5 Backend | `functions/api/admin/[[path]].ts` 추가(프로젝트/지식/상품설정/생성/배포 전 엔드포인트) + OPENAI 연동 로직 추가 | 프론트 빌드 영향 없음, API 라우터 코드 반영 완료
+- 2026-02-16 17:27 | Ops/Deploy Fix | Cloudflare Pages Functions 라우트 파일명을 `functions/api/admin/[...path].ts` -> `functions/api/admin/[[path]].ts`로 변경, path 파라미터 slash 분해 로직 추가 | Pages 빌드 경로 규칙 호환 수정
 - 2026-02-16 16:03 | Step 2~5 DB | `supabase/migrations/202602160005_admin_rls_policies.sql` 추가(RLS enable + admin policy) | RLS SQL 작성 완료(적용 대기)
 - 2026-02-16 16:03 | Step 4 정확도 | `lunar-javascript` 도입, `src/utils/saju.ts` 만세력 팔자 계산으로 교체, `src/types/lunar-javascript.d.ts` 추가 | `pnpm build` 통과
 - 2026-02-16 16:58 | Ops/DB 적용 | 운영 Supabase에 `supabase/migrations/*.sql` 적용 시도(순서 확인 완료: 202602160001~005) | CLI 인증 토큰 부재로 적용 보류(`supabase projects list`에서 access token 필요 오류)

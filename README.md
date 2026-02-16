@@ -25,7 +25,7 @@ pnpm dev
 
 ## API 연결
 
-권장 기본값은 동일 도메인 API(`functions/api/admin/[...path].ts`)입니다.
+권장 기본값은 동일 도메인 API(`functions/api/admin/[[path]].ts`)입니다.
 외부 API를 사용하려면 `VITE_DEFAULT_API_BASE_URL` 또는 상단 API 재연결 설정으로 변경할 수 있습니다.
 
 1. 상단 `API 재연결`로 연결 상태 확인
@@ -35,7 +35,7 @@ pnpm dev
 ### 내장 Admin API (Cloudflare Pages Functions)
 
 - 엔드포인트 루트: `/api/admin/*`
-- 구현 파일: `functions/api/admin/[...path].ts`
+- 구현 파일: `functions/api/admin/[[path]].ts`
 - LLM 연동:
   - `OPENAI_API_KEY` 설정 시 `/api/admin/generate`가 OpenAI Responses API 호출
   - 미설정 시 fallback 생성 로직 사용

@@ -3,7 +3,7 @@
 Last updated: 2026-02-16
 
 구현 위치:
-- Cloudflare Pages Functions 라우터: `functions/api/admin/[...path].ts`
+- Cloudflare Pages Functions 라우터: `functions/api/admin/[[path]].ts`
 - LLM 연동 env: `OPENAI_API_KEY`, `OPENAI_MODEL`
 - 저장소: `ADMIN_DATA_KV` 바인딩이 있으면 KV 영속 저장, 없으면 in-memory fallback
 
