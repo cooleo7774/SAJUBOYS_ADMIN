@@ -13,6 +13,9 @@ import { sampleProjects } from "./studio-data";
 
 type TabKey = "context" | "examples" | "playground" | "publish";
 
+const DEFAULT_API_BASE_URL =
+  import.meta.env.VITE_DEFAULT_API_BASE_URL?.trim() || "http://127.0.0.1:4000";
+
 const FALLBACK_SUMMARIES: AdminProjectSummary[] = sampleProjects.map((item) => ({
   id: item.id,
   project_key: item.id,
@@ -118,7 +121,7 @@ function generateDraft(input: {
 
 export function App() {
   const [apiBaseUrl, setApiBaseUrl] = useState(
-    () => window.localStorage.getItem("sb_admin_api_base_url") ?? "http://127.0.0.1:4000"
+    () => window.localStorage.getItem("sb_admin_api_base_url") ?? DEFAULT_API_BASE_URL
   );
   const [apiKey, setApiKey] = useState(() => window.localStorage.getItem("sb_admin_api_key") ?? "");
   const [bearerToken, setBearerToken] = useState(() => window.localStorage.getItem("sb_admin_bearer_token") ?? "");

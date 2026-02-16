@@ -29,6 +29,13 @@ pnpm dev
 4. 또는 `Bearer Token` 사용: `ADMIN_USER_IDS`에 포함된 사용자 토큰 입력
 5. `Connect` 클릭
 
+## 운영 배포 (`admin.saju-boys.com`)
+
+- Cloudflare + GitHub 배포(권장): `docs/cloudflare-pages-deploy.md`
+- 자체 서버 + Nginx 배포(대안): `docs/admin-deployment-guide.md`
+- Nginx 설정 예시: `ops/nginx/admin.saju-boys.com.conf`
+- 프로덕션 기본 API 주소는 `.env.production`에서 `VITE_DEFAULT_API_BASE_URL`로 지정 가능
+
 ## 현재 포함 기능
 
 - API 연결 모드(`API Base URL`, `Admin API Key`, `Bearer Token`)
