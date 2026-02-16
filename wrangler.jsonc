@@ -1,10 +1,16 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "sajuboys-admin",
-  "compatibility_date": "2026-02-16",
-  "main": "worker/index.js",
-  "assets": {
-    "directory": "./dist",
-    "binding": "ASSETS"
-  }
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "sajuboys-admin",
+	"compatibility_date": "2026-02-16",
+	"main": "worker/index.js",
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS"
+	},
+	"kv_namespaces": [
+		{
+			"binding": "sajuboys_admin_data_prodsajuboys_admin_data_previ",
+			"id": "d6578c5286f342fc9fc5e8aa8b16ce1e"
+		}
+	]
 }

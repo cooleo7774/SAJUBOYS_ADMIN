@@ -306,3 +306,5 @@
 - 2026-02-16 16:03 | Step 2~5 Backend | `functions/api/admin/[...path].ts` 추가(프로젝트/지식/상품설정/생성/배포 전 엔드포인트) + OPENAI 연동 로직 추가 | 프론트 빌드 영향 없음, API 라우터 코드 반영 완료
 - 2026-02-16 16:03 | Step 2~5 DB | `supabase/migrations/202602160005_admin_rls_policies.sql` 추가(RLS enable + admin policy) | RLS SQL 작성 완료(적용 대기)
 - 2026-02-16 16:03 | Step 4 정확도 | `lunar-javascript` 도입, `src/utils/saju.ts` 만세력 팔자 계산으로 교체, `src/types/lunar-javascript.d.ts` 추가 | `pnpm build` 통과
+- 2026-02-16 16:58 | Ops/DB 적용 | 운영 Supabase에 `supabase/migrations/*.sql` 적용 시도(순서 확인 완료: 202602160001~005) | CLI 인증 토큰 부재로 적용 보류(`supabase projects list`에서 access token 필요 오류)
+- 2026-02-16 17:12 | Ops/DB 적용 | 선행 스키마 누락 대응으로 `supabase/migrations/202602160000_admin_projects_baseline.sql` 추가 후 `supabase db push --include-all` 재실행 | 운영 DB에 202602160000~005 적용 완료, `supabase migration list` local=remote 일치 확인
