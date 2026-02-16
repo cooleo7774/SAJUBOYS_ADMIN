@@ -178,7 +178,8 @@ body {
   overflow-x: auto;
 }
 
-.tabs button {
+.tabs button,
+.tabs a {
   border: 1px solid var(--line);
   background: #fff;
   border-radius: 999px;
@@ -186,9 +187,14 @@ body {
   text-transform: capitalize;
   font-family: "IBM Plex Mono", monospace;
   cursor: pointer;
+  text-decoration: none;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
 }
 
-.tabs button.active {
+.tabs button.active,
+.tabs a.active {
   background: var(--accent);
   color: #fff;
   border-color: transparent;
@@ -197,6 +203,12 @@ body {
 .tab-content {
   display: grid;
   gap: 10px;
+}
+
+.toolbar-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 label {
@@ -252,6 +264,30 @@ textarea {
   gap: 8px;
 }
 
+.training-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.training-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.training-card p {
+  margin: 6px 0 0;
+  white-space: pre-line;
+  line-height: 1.45;
+}
+
+.training-card.active {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px rgba(2, 98, 92, 0.24);
+}
+
 .example-card {
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -294,6 +330,11 @@ button.primary {
   background: var(--accent);
   color: #fff;
   border-color: transparent;
+}
+
+button.danger-light {
+  border-color: rgba(163, 55, 45, 0.35);
+  color: var(--danger);
 }
 
 .preview-block {
@@ -408,5 +449,299 @@ button.primary {
 
   .topbar {
     flex-direction: column;
+  }
+}
+
+.admin-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 14px;
+  padding: 16px;
+}
+
+.admin-sidebar {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.admin-sidebar h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.sidebar-nav {
+  display: grid;
+  gap: 8px;
+}
+
+.sidebar-nav a {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 10px 12px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.86rem;
+}
+
+.sidebar-nav a.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: transparent;
+}
+
+.sidebar-foot {
+  display: grid;
+  gap: 8px;
+}
+
+.admin-main {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 10px;
+}
+
+.admin-topbar {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.topbar-group {
+  display: flex;
+  gap: 8px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.admin-content {
+  display: grid;
+  gap: 12px;
+}
+
+.page-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.stat-grid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.stat-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  padding: 12px;
+}
+
+.stat-card strong {
+  font-size: 1.4rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+.table th,
+.table td {
+  border-bottom: 1px solid var(--line);
+  padding: 10px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.table th {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.inline-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.inline-checkbox input {
+  width: auto;
+}
+
+.button-link {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+  padding: 9px 12px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.chart-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  padding: 10px;
+  display: grid;
+  gap: 6px;
+}
+
+.element-badge {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 0.78rem;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.element-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.element-row {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) 22px;
+  align-items: center;
+  gap: 8px;
+}
+
+.element-bar {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.04);
+  height: 12px;
+  overflow: hidden;
+}
+
+.element-fill {
+  height: 100%;
+}
+
+.element-wood {
+  background: #2d7a46;
+  color: #fff;
+}
+
+.element-fire {
+  background: #d24f35;
+  color: #fff;
+}
+
+.element-earth {
+  background: #b28846;
+  color: #fff;
+}
+
+.element-metal {
+  background: #667085;
+  color: #fff;
+}
+
+.element-water {
+  background: #2f5f9f;
+  color: #fff;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.36);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  z-index: 40;
+}
+
+.modal-panel {
+  width: min(560px, 100%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.modal-panel h3 {
+  margin: 0 0 8px;
+}
+
+.modal-actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+@media (max-width: 1100px) {
+  .admin-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .chart-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .admin-shell {
+    padding: 10px;
+  }
+
+  .admin-topbar {
+    align-items: stretch;
+  }
+
+  .topbar-group {
+    width: 100%;
+  }
+
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .table {
+    min-width: 560px;
   }
 }
