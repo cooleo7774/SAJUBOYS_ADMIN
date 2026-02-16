@@ -7,6 +7,7 @@
 - `functions/_middleware.ts` 추가
 - 운영 주소 전체에 Basic Auth(아이디/비밀번호) 적용
 - Cloudflare 환경변수 `ADMIN_BASIC_AUTH_USER`, `ADMIN_BASIC_AUTH_PASS`가 없으면 503으로 차단
+- `wrangler.jsonc`, `worker/index.js` 추가 (Cloudflare Build의 `npx wrangler deploy` 방식 대응)
 
 즉, 배포 후 환경변수만 설정하면 바로 운영자 전용 로그인창이 뜹니다.
 
@@ -75,6 +76,9 @@ Cloudflare에서 도메인을 관리 중이면 보통 자동으로 연결됩니�
 
 ## 8) 문제 해결
 
+- `Missing entry-point to Worker script or to assets directory` 에러:
+  현재 저장소에 `wrangler.jsonc`와 `worker/index.js`를 추가해둔 상태이므로 최신 커밋으로 다시 배포하면 해결됩니다.
+  그래도 실패하면 Cloudflare 빌드 캐시 삭제 후 재시도하세요.
 - 로그인 팝업이 안 뜬다:
   `ADMIN_BASIC_AUTH_USER`, `ADMIN_BASIC_AUTH_PASS` 설정 누락 여부 확인
 - 로그인해도 화면이 503:

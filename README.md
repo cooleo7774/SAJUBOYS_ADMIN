@@ -35,6 +35,7 @@ pnpm dev
 - 자체 서버 + Nginx 배포(대안): `docs/admin-deployment-guide.md`
 - Nginx 설정 예시: `ops/nginx/admin.saju-boys.com.conf`
 - 프로덕션 기본 API 주소는 `.env.production`에서 `VITE_DEFAULT_API_BASE_URL`로 지정 가능
+- Cloudflare Build에서 `npx wrangler deploy`를 쓰는 경우 `wrangler.jsonc`, `worker/index.js`가 포함되어야 함 (이미 반영됨)
 
 ## 현재 포함 기능
 
